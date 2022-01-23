@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct NASAAPODApp: App {
+    
+    let photoInfoStore = PhotoInfoStore()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
+                .environmentObject(photoInfoStore)
         }
     }
 }
