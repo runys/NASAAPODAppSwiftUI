@@ -13,6 +13,8 @@ struct PhotoInfo: Codable {
     var url: URL
     var copyright: String?
     var date: String
+    var mediaType: String
+    var hdurl: URL
     
     enum CodingKeys: String, CodingKey {
         case title
@@ -20,6 +22,8 @@ struct PhotoInfo: Codable {
         case url
         case copyright
         case date
+        case mediaType = "media_type"
+        case hdurl
     }
 }
 

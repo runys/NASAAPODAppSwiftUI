@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LoadingPhotoInfoView: View {
+    
+    let message: String
+    
     var body: some View {
         VStack(spacing: 16) {
             Spacer()
@@ -15,7 +18,7 @@ struct LoadingPhotoInfoView: View {
             ProgressView()
                 .progressViewStyle(CircularProgressViewStyle())
             
-            Text("Loading photo")
+            Text(message)
             
             Spacer()
         }
@@ -24,6 +27,6 @@ struct LoadingPhotoInfoView: View {
 
 struct LoadingPhotoInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        LoadingPhotoInfoView()
+        LoadingPhotoInfoView(message: "Loading")
     }
 }

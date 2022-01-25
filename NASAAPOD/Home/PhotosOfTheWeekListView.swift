@@ -10,39 +10,36 @@ import SwiftUI
 struct PhotosOfTheWeekListView: View {
     @EnvironmentObject var photoInfoStore: PhotoInfoStore
     
-    @State var photoInfoForTheWeek: [PhotoInfo] = [
-        testPhotoInfo1,
-        testPhotoInfo2,
-        testPhotoInfo3
-    ]
+    var dates: [Date] {
+        return photoInfoStore.photosOfThePastWeek.keys.map { $0 }
+    }
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
+            Text("Photos of the Week")
+                .font(.headline)
+                .fontWeight(.bold)
             
-            if photoInfoForTheWeek.isEmpty {
-                LoadingPhotoInfoView()
+            if photoInfoStore.photosOfThePastWeek.isEmpty {
+                // Loading State
+                LoadingPhotoInfoView(message: "Loading photos of the week")
             } else {
-                ForEach(photoInfoForTheWeek, id: \.title) { photoInfo in
-                    PhotoInfoRowView(photoInfo: photoInfo)
-                        .padding()
+                // Info Loaded Successfully
+                ForEach(dates, id: \.self) { date in
+                    if let photoInfo = photoInfoStore.photosOfThePastWeek[date],
+                       let photo = photoInfo {
+                        PhotoInfoRowView(photoInfo: photo)
+                            .padding()
+                    } else {
+                        NoInfoRowView(date: date)
+                            .padding()
+                    }
+                    
                 }
             }
         }
-        .task {
-            if photoInfoForTheWeek.isEmpty {
-                await self.fetchPhotoInfo()
-            }
-        }
     }
     
-    func fetchPhotoInfo() async {
-        do {
-            self.photoInfoForTheWeek = try await photoInfoStore.fetchPhotoInfoForThePastSevenDays()
-        } catch {
-            print("Failed to load photos of the previous week: \(error.localizedDescription)")
-        }
-        
-    }
 }
 
 struct PhotosOfTheWeekListView_Previews: PreviewProvider {
