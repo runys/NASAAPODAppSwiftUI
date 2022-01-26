@@ -18,7 +18,7 @@ struct PhotosOfTheWeekListView: View {
         VStack(alignment: .leading) {
             if photoInfoStore.photosOfThePastWeek.isEmpty {
                 // Loading State
-                LoadingPhotoInfoView(message: "Loading photos of the week")
+                LoadingView(message: "Loading photos of the week")
             } else {
                 // Info Loaded Successfully
                 ForEach(dates, id: \.self) { date in

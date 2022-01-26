@@ -11,8 +11,10 @@ struct PhotoInfoRowView: View {
     var photoInfo: PhotoInfo
     
     var formattedDate: String {
-        // TODO: Actually format the date
-        return photoInfo.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, YY"
+        
+        return dateFormatter.string(from: photoInfo.dateObject)
     }
     
     var body: some View {
@@ -33,5 +35,9 @@ struct PhotoInfoRowView: View {
 struct PhotoInfoRowView_Previews: PreviewProvider {
     static var previews: some View {
         PhotoInfoRowView(photoInfo: testPhotoInfo1)
+            .padding()
+            .background(Color(uiColor: UIColor.systemGray6))
+            .cornerRadius(10)
+            .padding()
     }
 }
