@@ -57,9 +57,6 @@
 			children = (
 				2788457B275A6D97007A8A63 /* HomeView.swift */,
 				2788457D275A6DC4007A8A63 /* PhotoOfTodayView.swift */,
-				27D5B89D2795B3F3007D5520 /* PhotosOfTheWeekListView.swift */,
-				27884577275A56B5007A8A63 /* PhotoInfoRowView.swift */,
-				27542D7527A0A7D2007B89F0 /* NoInfoRowView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -86,6 +83,16 @@
 				2719CAF02799ADDF00863F87 /* TestingData.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		27542D7927A14109007B89F0 /* List of Photos */ = {
+			isa = PBXGroup;
+			children = (
+				27D5B89D2795B3F3007D5520 /* PhotosOfTheWeekListView.swift */,
+				27884577275A56B5007A8A63 /* PhotoInfoRowView.swift */,
+				27542D7527A0A7D2007B89F0 /* NoInfoRowView.swift */,
+			);
+			path = "List of Photos";
 			sourceTree = "<group>";
 		};
 		2788457F275A73A3007A8A63 /* Model */ = {
@@ -119,6 +126,7 @@
 			children = (
 				27C8350327595EB60089D1DA /* NASAAPODApp.swift */,
 				2719CAEB2799AD3300863F87 /* Home */,
+				27542D7927A14109007B89F0 /* List of Photos */,
 				2719CAEE2799ADAD00863F87 /* Photo Info Details */,
 				2719CAED2799AD7E00863F87 /* Supporting Views */,
 				2788457F275A73A3007A8A63 /* Model */,

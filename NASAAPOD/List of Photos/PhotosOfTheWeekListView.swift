@@ -26,9 +26,13 @@ struct PhotosOfTheWeekListView: View {
                        let photo = photoInfo {
                         PhotoInfoRowView(photoInfo: photo)
                             .padding()
+                            .background(Color(uiColor: UIColor.systemGray6))
+                            .cornerRadius(10)
                     } else {
                         NoInfoRowView(date: date)
                             .padding()
+                            .background(Color(uiColor: UIColor.systemGray6))
+                            .cornerRadius(10)
                     }
                 }
             }
