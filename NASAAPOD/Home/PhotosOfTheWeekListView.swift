@@ -11,15 +11,11 @@ struct PhotosOfTheWeekListView: View {
     @EnvironmentObject var photoInfoStore: PhotoInfoStore
     
     var dates: [Date] {
-        return photoInfoStore.photosOfThePastWeek.keys.map { $0 }
+        return photoInfoStore.photosOfThePastWeek.keys.map { $0 }.sorted { $0 > $1 }
     }
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Photos of the Week")
-                .font(.headline)
-                .fontWeight(.bold)
-            
             if photoInfoStore.photosOfThePastWeek.isEmpty {
                 // Loading State
                 LoadingPhotoInfoView(message: "Loading photos of the week")
@@ -34,7 +30,6 @@ struct PhotosOfTheWeekListView: View {
                         NoInfoRowView(date: date)
                             .padding()
                     }
-                    
                 }
             }
         }
