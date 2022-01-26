@@ -24,7 +24,7 @@ struct PhotoOfTodayView: View {
                             .aspectRatio(16.0/9.0, contentMode: .fit)
                             .cornerRadius(10)
                     } placeholder: {
-                        LoadingPhotoInfoView(message: "Loading photo of today")
+                        LoadingView(message: "Loading photo of today")
                             .frame(maxWidth: .infinity)
                             .aspectRatio(16.0/9.0, contentMode: .fit)
                     }

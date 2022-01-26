@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoadingPhotoInfoView: View {
+struct LoadingView: View {
     
     let message: String
     
@@ -27,6 +27,6 @@ struct LoadingPhotoInfoView: View {
 
 struct LoadingPhotoInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        LoadingPhotoInfoView(message: "Loading")
+        LoadingView(message: "Loading")
     }
 }
